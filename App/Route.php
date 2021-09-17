@@ -20,22 +20,22 @@ class Route extends Bootstrap {
 			'action' => 'login'
 		);
 
-		$routes['registrar'] = array(
-			'route' => '/registrar',
+		$routes['register'] = array(
+			'route' => '/register',
 			'controller' => 'IndexController',
-			'action' => 'registrar'
+			'action' => 'register'
 		);
 
-		$routes['registrar_usuario'] = array(
-			'route' => '/registrar_usuario',
+		$routes['user_register'] = array(
+			'route' => '/user_register',
 			'controller' => 'IndexController',
-			'action' => 'registrarUsuario'
+			'action' => 'userRegister'
 		);
 
-		$routes['login_usuario'] = array(
-			'route' => '/login_usuario',
+		$routes['user_login'] = array(
+			'route' => '/user_login',
 			'controller' => 'IndexController',
-			'action' => 'loginUsuario'
+			'action' => 'userLogin'
 		);
 
 		$this->setRoutes($routes);

@@ -17,8 +17,16 @@ class IndexController extends Action {
 		$this->render('login');
 	}
 
-	public function registrar() {
-		$this->render('registrar');
+	public function register() {
+		$this->render('register');
+	}
+
+	public function userLogin() {
+
+	}
+
+	public function userRegister() {
+		
 	}
 
 }
