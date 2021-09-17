@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Open+Sans&display=swap');
+
+* {
+    font-family: 'Open Sans', sans-serif;
+    word-wrap: break-word;
+}
+
+p {
+    text-align: justify;
+    font-size: 16px;
+}
+
+main h4 {
+    font-weight: bold;
+}
+
+form button {
+    background-color: rgb(90, 5, 5);
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    width: 100px;
+    border-radius: 12px;
+    margin: 4px;
+}
+
+#login {
+    background-color: rgba(12, 11, 11, 0.829);
+}
+
+#img-login {
+    background-color: rgba(218, 218, 218, 0.904);
+    border: 4px double black;
+    padding: 5px;
+}
+
+#navbar a {
+    color: white;
+    background-color: rgb(90, 5, 5);
+    padding: 10px;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    font-size: 12pt;
+    font-weight: bold;
+    text-decoration: none;
+}
+.skendRPG {
+    font-size: 120pt;
+    min-height: 300px;
+    /* border: 2px solid black; */
+}
+
+.skend {
+    color: rgb(90, 5, 5);
+}
+
+.RPG {
+    color: black;
+}

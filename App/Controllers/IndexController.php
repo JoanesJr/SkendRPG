@@ -13,6 +13,14 @@ class IndexController extends Action {
 		$this->render('index');
 	}
 
+	public function login() {
+		$this->render('login');
+	}
+
+	public function registrar() {
+		$this->render('registrar');
+	}
+
 }
 
 
