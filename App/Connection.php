@@ -8,15 +8,15 @@ class Connection {
 		try {
 
 			$conn = new \PDO(
-				"mysql:host=localhost;dbname=mvc;charset=utf8",
+				"mysql:host=localhost;dbname=skendRPG;charset=utf8",
 				"root",
-				"" 
+				"def75315901" 
 			);
 
 			return $conn;
 
 		} catch (\PDOException $e) {
-			//.. tratar de alguma forma ..//
+			echo $e->getMessage();
 		}
 	}
 }

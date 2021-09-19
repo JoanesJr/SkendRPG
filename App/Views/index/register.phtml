@@ -1,19 +1,20 @@
 <body id="login">
-    <main class="container mt-5">
-        <div class="row mt-5">
-            <div class="col-12 d-flex flex-collumn justify-content-center aligns-items-center mt-5">
+    <main class="container mt-5 d-flex aligns-items-center justify-content-center">
+        <div class="row mt-2">
+            <div class="col-12 mt-2">
+                <div id="img-login" class="d-flex justify-content-center aligns-items-center justify-collumns mt-3 mb-3">
+                    <img src="img/anonymus.png" alt="" class="img-fluid" style="max-width: 140px;">
+                </div>
+                
                 <form enctype="multipart/form-data mt-5" action="user_register" method="post">
-                    <div class="mb-3">
+                    <div class=" form-group mb-3">
                         <input type="text" class="form-control" placeholder="Nome" required id="name" name="name" aria-describedby="nameHelp">
                     </div>
-                    <div class="mb-3">
+                    <div class=" form-group mb-3">
                         <input type="email" class="form-control" placeholder="E-mail" required id="email" name="email" aria-describedby="emailHelp">
                     </div>
-                    <div class="mb-3">
+                    <div class="form-group mb-3">
                         <input type="password" class="form-control" placeholder="Senha" required min="8" name="password" id="password">
-                    </div>
-                    <div class="mb-3">
-                        <input type="file" class="form-control" required min="8" id="image" name="image">
                     </div>
                     <div class="form-group d-flex justify-content-center">
                         <button>Cadastrar</button>

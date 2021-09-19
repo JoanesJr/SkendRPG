@@ -1,0 +1,44 @@
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8" />
+		<title>SkendRPG</title>
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+		<script src="js/jquery.js"></script>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
+
+	</head>
+
+	<body>
+		<header id="navbar">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<nav id="navPrincipal" class="navbar d-flex flex-row-reverse ">
+							<div class="d-flex flex-row-reverse">
+								<a href="/profile" class="p-2 border border-1 border-top-0 border-bottom-0">
+									Perfil
+								</a>
+								<a href="/logoff" class="p-2">
+									Sair
+								</a>
+								<a href="/app" class="p-2 border border-1 border-top-0 border-bottom-0">
+									INICIO
+								</a>
+							</div>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<?= $this->content() ?>
+	</body>
+
+</html>
