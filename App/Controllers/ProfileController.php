@@ -5,7 +5,7 @@ namespace App\Controllers;
 use MF\Model\Container;
 use MF\Controller\Action;
 
-class ProfilePerfilController extends Action {
+class ProfileController extends Action {
 
     //metodo para editar as informações do usuário
     public function userEdit() {
