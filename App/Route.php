@@ -71,7 +71,7 @@ class Route extends Bootstrap {
 
 		$routes['edit'] = array(
 			'route' => '/user_edit',
-			'controller' => 'AppController',
+			'controller' => 'ProfileController',
 			'action' => 'userEdit'
 		);
 
