@@ -10,6 +10,25 @@ p {
     font-size: 16px;
 }
 
+hr {
+    margin: 1rem 0;
+    color: inherit;
+    background-color: currentColor;
+    border: 0;
+    opacity: 0.25;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    transform: scale(1.1);
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
 main h4 {
     font-weight: bold;
 }
@@ -57,4 +76,29 @@ form button {
 
 .RPG {
     color: black;
+}
+
+.btn-menu-app {
+    width: 100px;
+    height: 60px;
+    padding: 5px;
+    color: white;
+    background-color: rgb(90, 5, 5);
+    margin-top: -20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13pt;
+    font-weight: bold;
+    border-radius: 6px;
+}
+
+.info {
+    float: right;
+    padding: 5px;
+    margin-top: 20px;
+}
+
+.division {
+    border-right: 2px double red;
 }

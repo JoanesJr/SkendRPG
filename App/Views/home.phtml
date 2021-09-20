@@ -16,27 +16,36 @@
 	</head>
 
 	<body>
-		<header id="navbar">
+
+		<header class="container">
 			<div class="container">
-				<div class="row">
-					<div class="col-12">
-						<nav id="navPrincipal" class="navbar d-flex flex-row-reverse ">
-							<div class="d-flex flex-row-reverse">
-								<a href="/profile" class="p-2 border border-1 border-top-0 border-bottom-0">
-									Perfil
-								</a>
-								<a href="/logoff" class="p-2">
-									Sair
-								</a>
-								<a href="/app" class="p-2 border border-1 border-top-0 border-bottom-0">
-									INICIO
-								</a>
-							</div>
-						</nav>
+				<nav class="d-flex justify-content-between">
+					<div class="d-inline-block">
+						<img src="img/img_profile/<?= $this->view->user->imagem ?>" alt="imagem do perfil" class="img-fluid img-thumbnail" style="max-width: 120px;">
+						<div class="info">
+							<span class="d-block">ID: #<?= $this->view->user->id ?></span>
+							<span class="">Personagens: 2</span>
+						</div>
+						
 					</div>
-				</div>
+					<div class="d-flex align-items-center">
+						<a href="/app" class="btn-menu-app">INICIO</a>
+					</div>
+					<div class="dropdown d-flex lign-items-center">
+						<a class="btn" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+							<img src="img/gear.png" alt="" class="img-fluid" style="max-width: 60px;">
+						</a>
+
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+							<li><a class="dropdown-item" href="/profile">Perfil</a></li>
+							<li><a class="dropdown-item" href="/logoff">Sair</a></li>
+						</ul>
+					</div>
+				</nav>
 			</div>
 		</header>
+
+		<hr>
 
 		<?= $this->content() ?>
 	</body>

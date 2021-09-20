@@ -34,7 +34,7 @@ class ProfileController extends Action {
             $extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
             $name = pathinfo($_FILES['image']['name'], PATHINFO_FILENAME);
             $new_name = time().'.'.$extension;
-            $directory = "img/";
+            $directory = "img/img_profile/";
             move_uploaded_file($_FILES['image']['tmp_name'], $directory.$new_name);
         }else {
             $new_name = 'anonymus.png';

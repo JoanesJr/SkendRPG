@@ -10,6 +10,10 @@ class AppController extends Action {
     //metodo index, apenas redireciona para a pagina inicial do app
     public function index() {
         $this->validateLogin();
+        $user = Container::getModel('Usuario');
+        $user->__set('id', $_SESSION['id']);
+        $this->view->user = $user->getUser();
+
         $this->render('index', 'home');
     }
 
