@@ -102,3 +102,17 @@ form button {
 .division {
     border-right: 2px double red;
 }
+
+.img-equality {
+    max-width: 40px;
+    position: relative;
+    top: 35px;
+}
+
+.btn-make-character {
+    width: 320px;
+}
+
+.btn-make-character:hover {
+    transform: scale(1.2);
+}

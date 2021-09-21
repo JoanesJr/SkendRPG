@@ -75,6 +75,12 @@ class Route extends Bootstrap {
 			'action' => 'userEdit'
 		);
 
+		$routes['make_character'] = array(
+			'route' => '/make_character',
+			'controller' => 'CharacterController',
+			'action' => 'index'
+		);
+
 		$this->setRoutes($routes);
 	}
 

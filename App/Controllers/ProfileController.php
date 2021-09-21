@@ -43,15 +43,6 @@ class ProfileController extends Action {
         return $new_name;
     }
 
-
-    //metodo de logoff, simplesmente destroi a sessão e redireiciona para o home d aaplicação
-    public function logoff() {
-        session_start();
-        session_destroy();
-
-        header('Location: /');
-    }
-
     //terá em todas as paginas do app, basicamente, verifica se o usuario esta logado, caso não esteja, redireciona para a pagina inicial de login
     public function validateLogin() {
         session_start();
