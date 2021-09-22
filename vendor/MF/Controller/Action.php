@@ -29,6 +29,30 @@ abstract class Action {
 
 		require_once "../App/Views/".$classAtual."/".$this->view->page.".phtml";
 	}
+
+	protected function validateLogin() {
+        session_start();
+
+        if (empty($_SESSION['id']) && empty($_SESSION['nome'])) {
+            header('Location: /login?error=3');
+        }
+
+        return true;
+    }
+
+	protected function nameImg($dir) {
+        if (!empty($_FILES['image']['name'])) {
+            $extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+            $name = pathinfo($_FILES['image']['name'], PATHINFO_FILENAME);
+            $new_name = time().'.'.$extension;
+            $directory = "img/{$dir}/";
+            move_uploaded_file($_FILES['image']['tmp_name'], $directory.$new_name);
+        }else {
+            $new_name = 'anonymus.png';
+        }
+
+        return $new_name;
+    }
 }
 
 ?>

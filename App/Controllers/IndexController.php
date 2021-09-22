@@ -26,10 +26,6 @@ class IndexController extends Action {
 		$this->render('register');
 	}
 
-	public function userLogin() {
-
-	}
-
 	public function userRegister() {
 		/* 
 			Instanciando um model
