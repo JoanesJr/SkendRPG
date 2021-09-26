@@ -80,6 +80,12 @@ class Personagem extends model {
         $stmt->bindValue(':nome_atributo_4', $this->__get('nome_atributo_4'));
         $stmt->bindValue(':nome_atributo_5', $this->__get('nome_atributo_5'));
         $stmt->bindValue(':nome_atributo_6', $this->__get('nome_atributo_6'));
+        $stmt->bindValue(':valor_atributo_1', $this->__get('valor_atributo_1'));
+        $stmt->bindValue(':valor_atributo_2', $this->__get('valor_atributo_2'));
+        $stmt->bindValue(':valor_atributo_3', $this->__get('valor_atributo_3'));
+        $stmt->bindValue(':valor_atributo_4', $this->__get('valor_atributo_4'));
+        $stmt->bindValue(':valor_atributo_5', $this->__get('valor_atributo_5'));
+        $stmt->bindValue(':valor_atributo_6', $this->__get('valor_atributo_6'));
         $stmt->bindValue(':nome_recurso_1', $this->__get('nome_recurso_1'));
         $stmt->bindValue(':nome_recurso_2', $this->__get('nome_recurso_2'));
         $stmt->bindValue(':nome_recurso_3', $this->__get('nome_recurso_3'));
@@ -103,5 +109,31 @@ class Personagem extends model {
 
     public function delete() {
 
+    }
+
+    public function getAll() {
+        $query =   
+            "
+                SELECT * FROM Personagem WHERE id_usuario = :id_usuario;
+            ";
+        
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':id_usuario', $this->__get('id_usuario'));
+            $stmt->execute();
+
+            return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+    public function getCharacter() {
+        $query =   
+            "
+                SELECT * FROM Personagem WHERE id = :id;
+            ";
+        
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':id', $this->__get('id'));
+            $stmt->execute();
+
+            return $stmt->fetch(\PDO::FETCH_OBJ);
     }
 }

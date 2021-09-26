@@ -11,6 +11,9 @@ class AppController extends Action {
     public function index() {
         $this->validateLogin();
         $user = Container::getModel('Usuario');
+        $character = Container::getModel('Personagem');
+        $character->__set('id_usuario', $_SESSION['id']);
+        $this->view->character = $character->getAll();
         $user->__set('id', $_SESSION['id']);
         $this->view->user = $user->getUser();
 

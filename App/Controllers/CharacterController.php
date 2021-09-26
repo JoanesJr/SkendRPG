@@ -57,14 +57,22 @@ class CharacterController extends Action {
         $character->__set('experiencia', 1);
 
         if ($character->save()) {
-            echo 'foi';
-            echo '<pre>';
-            echo '=================================';
-            print_r($character->save());
-            echo '</pre>';
+            header('Location: /app?success=2');
         }else {
-            echo 'triste';
+            header('Location: /make_character?error=3');
         }
+    }
+
+    public function view() {
+        $this->validateLogin();
+        $character = Container::getModel('Personagem');
+        $character->__set('id', $_GET['id']);
+        $this->view->character = $character->getCharacter();
+        $user = Container::getModel('Usuario');
+        $user->__set('id', $_SESSION['id']);
+        $this->view->user = $user->getUser();
+      
+        $this->render('view_character', 'home');
     }
 
     public function validateInt($var) {

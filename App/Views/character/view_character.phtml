@@ -1,0 +1,148 @@
+<?php
+    include 'function.php';
+?>
+<main class="container">
+    <div class="row" style="float: right;">
+        <img src="img/img_character/<?= $this->view->character->imagem ?>" alt="imagem personagem" class="img-fluid img-thumbnail" style="max-width: 180px;">
+    </div>
+    <div class="row">
+        <h4 align="center">GERAL</h4>
+        <div class="col-12 d-flex justify-content-center">
+            <div class="form-group">
+                <input type="text" name="name" required id="" value="<?= $this->view->character->nome ?>" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="text" name="class" required  class="form-control" value="<?= $this->view->character->classe ?>">
+            </div>
+            <div class="form-group">
+                <input type="number" name="age" required  class="form-control" value="<?= $this->view->character->idade ?>">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <h4 align="center">ESPECIFICAÇOES</h4>
+        <div class="col-12 d-flex justify-content-center">
+            <div class="form-group">
+                <input type="number" name="life" required id=""  value="<?= $this->view->character->vida ?>" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="number" name="energy" required  class="form-control" value="<?= $this->view->character->energia ?>">
+            </div>
+            <div class="form-group">
+                <input type="number" name="armor_class" required  class="form-control" value="<?= $this->view->character->ca ?>">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <h4 align="center">CARACTERISTICAS</h4>
+        <div class="col-12 d-flex justify-content-center">
+            <div class="form-group">
+                <input type="text" name="height" id="" required  value="<?= $this->view->character->altura ?>" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="text" name="color_hear" required  class="form-control" value="<?= $this->view->character->cabelo ?>">
+            </div>
+            <div class="form-group">
+                <input type="text" name="personality" required  class="form-control" value="<?= $this->view->character->personalidade ?>">
+            </div>
+            <div class="form-group">
+                <input type="text" name="details" required  class="form-control" value="<?= $this->view->character->detalhes ?>">
+            </div>
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-5 col-md-5 d-flex justify-content-center">
+                <div class="form-group">
+                    <h4>Nome dos Atributos</h4>
+                    <input type="text"  name="name_attribute_1" id="" class="form-control" value="<?= $this->view->character->nome_atributo_1 ?>" required>
+                    <input type="text"  name="name_attribute_2" id="" class="form-control" value="<?= $this->view->character->nome_atributo_2 ?>" required>
+                    <input type="text"  name="name_attribute_3" id="" class="form-control" value="<?= $this->view->character->nome_atributo_3 ?>" required>
+                    <input type="text"  name="name_attribute_4" id="" class="form-control" value="<?= $this->view->character->nome_atributo_4 ?>" required>
+                    <input type="text"  name="name_attribute_5" id="" class="form-control" value="<?= $this->view->character->nome_atributo_5 ?>" required>
+                    <input type="text"  name="name_attribute_6" id="" class="form-control" value="<?= $this->view->character->nome_atributo_6 ?>" required>
+                </div>
+            </div>
+            <div class="col-2 col-md-2 d-block">
+                <div>
+                    <img src="img/equality.jpg" alt="recebe" class="img-fluid img-equality">
+                </div>
+                <div>
+                    <img src="img/equality.jpg" alt="recebe" class="img-fluid img-equality">
+                </div>
+                <div>
+                    <img src="img/equality.jpg" alt="recebe" class="img-fluid img-equality">
+                </div>
+                <div>
+                    <img src="img/equality.jpg" alt="recebe" class="img-fluid img-equality">
+                </div>
+                <div>
+                    <img src="img/equality.jpg" alt="recebe" class="img-fluid img-equality">
+                </div>
+                <div>
+                    <img src="img/equality.jpg" alt="recebe" class="img-fluid img-equality">
+                </div>
+            </div>
+            <div class="col-5 col-md-5 d-flex justify-content-center">
+                <div class="form-group">
+                    <h4>Valor dos Atributos</h4>
+                    <input type="number"  name="value_attribute_1" id="" class="form-control" value="<?= $this->view->character->valor_atributo_1?>" required> 
+                    <input type="number"  name="value_attribute_2" id="" class="form-control" value="<?= $this->view->character->valor_atributo_2 ?>" required>
+                    <input type="number"  name="value_attribute_3" id="" class="form-control" value="<?= $this->view->character->valor_atributo_3 ?>" required>
+                    <input type="number"  name="value_attribute_4" id="" class="form-control" value="<?= $this->view->character->valor_atributo_4 ?>" required>
+                    <input type="number"  name="value_attribute_5" id="" class="form-control" value="<?= $this->view->character->valor_atributo_5 ?>" required>
+                    <input type="number"  name="value_attribute_6" id="" class="form-control" value="<?= $this->view->character->valor_atributo_6 ?>" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h4 align="center">RECURSOS</h4>
+            <div class="col-5 col-md-5 d-flex justify-content-center">
+                <div class="form-group">
+                    <h4>Nome dos Recursos</h4>
+                    <input type="text"  name="resource_1" id="" class="form-control" value="<?= $this->view->character->nome_recurso_1 ?>" required>
+                    <input type="text"  name="resource_2" id="" class="form-control" value="<?= $this->view->character->nome_recurso_2 ?>" required>
+                    <input type="text"  name="resource_3" id="" class="form-control" value="<?= $this->view->character->nome_recurso_3 ?>" required>
+                    <input type="text"  name="resource_4" id="" class="form-control" value="<?= $this->view->character->nome_recurso_4 ?>" required>
+                </div>
+            </div>
+
+            <div class="col-2 col-md-2 d-block">
+                <div>
+                    <img src="img/equality.jpg" alt="recebe" class="img-fluid img-equality">
+                </div>
+                <div>
+                    <img src="img/equality.jpg" alt="recebe" class="img-fluid img-equality">
+                </div>
+                <div>
+                    <img src="img/equality.jpg" alt="recebe" class="img-fluid img-equality">
+                </div>
+                <div>
+                    <img src="img/equality.jpg" alt="recebe" class="img-fluid img-equality">
+                </div>
+            </div>
+
+            <div class="col-5 col-md-5 d-flex justify-content-center">
+                <div class="form-group">
+                    <h4>Valor dos Recursos</h4>
+                    <input type="number"  name="value_resource_1" id="" class="form-control" value="<?= $this->view->character->valor_recurso_1 ?>" required>
+                    <input type="number"  name="value_resource_2" id="" class="form-control" value="<?= $this->view->character->valor_recurso_2 ?>" required> 
+                    <input type="number"  name="value_resource_3" id="" class="form-control" value="<?= $this->view->character->valor_recurso_3 ?>" required>
+                    <input type="number"  name="value_resource_4" id="" class="form-control" value="<?= $this->view->character->valor_recurso_4 ?>" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h4 align="center">HISTORIA</h4>
+            <div class="col-12 d-flex justify-content-center">
+                <div class="form-group">
+                    <p><?= $this->view->character->historia ?></p>
+                </div>
+            </div>
+        </div>
+</main>
+
+<script>
+    $(document).ready( () => {
+        $('input').attr('readonly', 'readonly');
+    });
+</script>
