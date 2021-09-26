@@ -34,14 +34,4 @@ class AppController extends Action {
         $this->render('profile', 'home');
     }
 
-    //terá em todas as paginas do app, basicamente, verifica se o usuario esta logado, caso não esteja, redireciona para a pagina inicial de login
-    public function validateLogin() {
-        session_start();
-
-        if (empty($_SESSION['id']) && empty($_SESSION['nome'])) {
-            header('Location: /login?error=3');
-        }
-
-        return true;
-    }
 }

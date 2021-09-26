@@ -58,7 +58,6 @@ após isso basta digitar o endereço "localhost:8000" no navegador.
         altura varchar(5) not null default "1.76",
         detalhes varchar(50),
         personalidade varchar(555),
-        outros varchar(555),
         imagem varchar(50) DEFAULT "anonymus.png"
     );
 

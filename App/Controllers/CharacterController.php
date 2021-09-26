@@ -16,28 +16,18 @@ class CharacterController extends Action {
     }
 
     public function createCharacter() {
-        $this->validate();
+        $this->validateLogin();
         $character = Container::getModel('Personagem');
         $name_img = $this->nameImg('img_character');
 
         $character->__set('id_usuario', $_SESSION['id']);
+        $character->__set('nome', $_POST['name']);
+        $character->__set('classe', $_POST['class']);
         $character->__set('idade', $_POST['age']);
         $character->__set('vida', $_POST['life']);
         $character->__set('energia', $_POST['energy']);
         $character->__set('ca', $_POST['armor_class']);
-        $character->__set('valor_atributo_1', $_POST['value_attribute_1']);
-        $character->__set('valor_atributo_2', $_POST['value_attribute_2']);
-        $character->__set('valor_atributo_3', $_POST['value_attribute_3']);
-        $character->__set('valor_atributo_4', $_POST['value_attribute_4']);
-        $character->__set('valor_atributo_5', $_POST['value_attribute_5']);
-        $character->__set('valor_atributo_6', $_POST['value_attribute_6']);
-        $character->__set('valor_recurso_1', $_POST['value_resource_1']);
-        $character->__set('valor_recurso_2', $_POST['value_resource_2']);
-        $character->__set('valor_recurso_3', $_POST['value_resource_3']);
-        $character->__set('valor_recurso_4', $_POST['value_resource_4']);
-
-        $character->__set('nome', $_POST['name']);
-        $character->__set('classe', $_POST['class']);
+        $character->__set('altura', $_POST['height']);
         $character->__set('cabelo', $_POST['color_hear']);
         $character->__set('personalidade', $_POST['personality']);
         $character->__set('detalhes', $_POST['details']);
@@ -47,22 +37,38 @@ class CharacterController extends Action {
         $character->__set('nome_atributo_4', $_POST['name_attribute_4']);
         $character->__set('nome_atributo_5', $_POST['name_attribute_5']);
         $character->__set('nome_atributo_6', $_POST['name_attribute_6']);
+        $character->__set('valor_atributo_1', $_POST['value_attribute_1']);
+        $character->__set('valor_atributo_2', $_POST['value_attribute_2']);
+        $character->__set('valor_atributo_3', $_POST['value_attribute_3']);
+        $character->__set('valor_atributo_4', $_POST['value_attribute_4']);
+        $character->__set('valor_atributo_5', $_POST['value_attribute_5']);
+        $character->__set('valor_atributo_6', $_POST['value_attribute_6']);
         $character->__set('nome_recurso_1', $_POST['resource_1']);
         $character->__set('nome_recurso_2', $_POST['resource_2']);
         $character->__set('nome_recurso_3', $_POST['resource_3']);
         $character->__set('nome_recurso_4', $_POST['resource_4']);
-        $character->__set('altura', $_POST['height']);
+        $character->__set('valor_recurso_1', $_POST['value_resource_1']);
+        $character->__set('valor_recurso_2', $_POST['value_resource_2']);
+        $character->__set('valor_recurso_3', $_POST['value_resource_3']);
+        $character->__set('valor_recurso_4', $_POST['value_resource_4']);
+        $character->__set('historia', $_POST['history']);
         $character->__set('imagem', $name_img);
+        $character->__set('nivel', 1);
+        $character->__set('experiencia', 1);
 
-        $character->save();
-
-        header('Location: /app?success=create');
-
-
+        if ($character->save()) {
+            echo 'foi';
+            echo '<pre>';
+            echo '=================================';
+            print_r($character->save());
+            echo '</pre>';
+        }else {
+            echo 'triste';
+        }
     }
 
     public function validateInt($var) {
-        if (filter_var($var, FILTER_VALIDATE_INT || $var == 0)) {
+        if (filter_var($var, FILTER_VALIDATE_INT) || $var == 0) {
             return true;
         }
 
@@ -121,13 +127,16 @@ class CharacterController extends Action {
 
        foreach ($int as $integer) {
            if (!$this->validateInt($integer)) {
-               header('Location: /make_character?erro=invalid'); 
+               echo 'error int:'. $integer.'<br>';
            }
        }
 
        foreach ($varchar as $char) {
            if (!$this->validateVarchar($char)) {
-               header('Location: /make_character?erro=invalid');
+               echo 'error char:'.$char.'<br>';
+               echo '</pre>';
+               print_r($_POST);
+               echo '</pre>';
            }
        }
     }
