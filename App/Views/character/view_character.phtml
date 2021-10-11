@@ -2,12 +2,18 @@
     include 'function.php';
 ?>
 <main class="container">
+<form action="/edit_character" method="post" enctype="multipart/form-data">
     <div class="row" style="float: right;">
         <img src="img/img_character/<?= $this->view->character->imagem ?>" alt="imagem personagem" class="img-fluid img-thumbnail" style="max-width: 180px;">
     </div>
-    <div class="row">
+
+    <div>
+        <btn id="btnEditar" class="btn btn-warning">Editar</btn>
+    </div>
+    <div class="row" id="geral">
         <h4 align="center">GERAL</h4>
-        <div class="col-12 d-flex justify-content-center">
+        <div class="col-12" id="geralContent">
+        <div class="d-flex justify-content-center">
             <div class="form-group">
                 <input type="text" name="name" required id="" value="<?= $this->view->character->nome ?>" class="form-control">
             </div>
@@ -18,36 +24,43 @@
                 <input type="number" name="age" required  class="form-control" value="<?= $this->view->character->idade ?>">
             </div>
         </div>
-    </div>
-    <div class="row">
-        <h4 align="center">ESPECIFICAÇOES</h4>
-        <div class="col-12 d-flex justify-content-center">
-            <div class="form-group">
-                <input type="number" name="life" required id=""  value="<?= $this->view->character->vida ?>" class="form-control">
-            </div>
-            <div class="form-group">
-                <input type="number" name="energy" required  class="form-control" value="<?= $this->view->character->energia ?>">
-            </div>
-            <div class="form-group">
-                <input type="number" name="armor_class" required  class="form-control" value="<?= $this->view->character->ca ?>">
-            </div>
+            
         </div>
     </div>
-    <div class="row">
+    <div class="row" id="especificacoes">
+        <h4 align="center">ESPECIFICAÇOES</h4>
+        <div class="col-12" id="especificacoesContent">
+            <div class="d-flex justify-content-center">
+                <div class="form-group">
+                    <input type="number" name="life" required id=""  value="<?= $this->view->character->vida ?>" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="number" name="energy" required  class="form-control" value="<?= $this->view->character->energia ?>">
+                </div>
+                <div class="form-group">
+                    <input type="number" name="armor_class" required  class="form-control" value="<?= $this->view->character->ca ?>">
+                </div>
+            </div> 
+        </div>
+    </div>
+    <div class="row" id="caracteristicas">
         <h4 align="center">CARACTERISTICAS</h4>
-        <div class="col-12 d-flex justify-content-center">
-            <div class="form-group">
-                <input type="text" name="height" id="" required  value="<?= $this->view->character->altura ?>" class="form-control">
+        <div class="col-12" id="caracteristicasContent">
+            <div class="d-flex justify-content-center">
+                <div class="form-group">
+                    <input type="text" name="height" id="" required  value="<?= $this->view->character->altura ?>" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="color_hear" required  class="form-control" value="<?= $this->view->character->cabelo ?>">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="personality" required  class="form-control" value="<?= $this->view->character->personalidade ?>">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="details" required  class="form-control" value="<?= $this->view->character->detalhes ?>">
+                </div>
             </div>
-            <div class="form-group">
-                <input type="text" name="color_hear" required  class="form-control" value="<?= $this->view->character->cabelo ?>">
-            </div>
-            <div class="form-group">
-                <input type="text" name="personality" required  class="form-control" value="<?= $this->view->character->personalidade ?>">
-            </div>
-            <div class="form-group">
-                <input type="text" name="details" required  class="form-control" value="<?= $this->view->character->detalhes ?>">
-            </div>
+            
         </div>
     </div>
         <div class="row">
@@ -124,6 +137,7 @@
             <div class="col-5 col-md-5 d-flex justify-content-center">
                 <div class="form-group">
                     <h4>Valor dos Recursos</h4>
+                    <input type="number" value="<?= $_GET['id'] ?>" class="d-none" name="id">
                     <input type="number"  name="value_resource_1" id="" class="form-control" value="<?= $this->view->character->valor_recurso_1 ?>" required>
                     <input type="number"  name="value_resource_2" id="" class="form-control" value="<?= $this->view->character->valor_recurso_2 ?>" required> 
                     <input type="number"  name="value_resource_3" id="" class="form-control" value="<?= $this->view->character->valor_recurso_3 ?>" required>
@@ -135,14 +149,38 @@
             <h4 align="center">HISTORIA</h4>
             <div class="col-12 d-flex justify-content-center">
                 <div class="form-group">
-                    <p><?= $this->view->character->historia ?></p>
+                    <textarea name="history" id="" cols="93" rows="10" required><?= $this->view->character->historia ?></textarea>
+                </div>
+            </div>
+
+            <div style="display: none;" id="input-img">
+                <div class="col-12 d-flex justify-content-center">
+                    <div class="form-group">
+                        <input type="file" class="form-control" name="image">
+                    </div>
                 </div>
             </div>
         </div>
+        <div id="btn-form" class="col-12" style="display: none;">
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn-make-character">EDITAR FICHA</button>
+            </div>
+            
+
+        </div>
+</form>
 </main>
 
 <script>
     $(document).ready( () => {
         $('input').attr('readonly', 'readonly');
+
+        $('#btnEditar').on('click', () => {
+            $('input').removeAttr('readonly');
+
+            $('#btn-form').show();
+            $('#input-img').show();
+        });
+
     });
 </script>

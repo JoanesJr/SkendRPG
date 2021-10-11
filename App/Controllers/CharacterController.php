@@ -12,11 +12,20 @@ class CharacterController extends Action {
         $user = Container::getModel('Usuario');
         $user->__set('id', $_SESSION['id']);
         $this->view->user = $user->getUser();
+
+        $character = Container::getModel('Personagem');
+        $character->__set('id_usuario', $_SESSION['id']);
+        $this->view->numberCharacter = $character->getNumberCharacter();
+        
+        
         $this->render('index', 'home');
     }
 
     public function createCharacter() {
         $this->validateLogin();
+        $character = Container::getModel('Personagem');
+        $character->__set('id_usuario', $_SESSION['id']);
+        $this->view->numberCharacter = $character->getNumberCharacter();
         $character = Container::getModel('Personagem');
         $name_img = $this->nameImg('img_character');
 
@@ -63,11 +72,70 @@ class CharacterController extends Action {
         }
     }
 
+    public function editCharacter() {
+        $this->validateLogin();
+        $character = Container::getModel('Personagem');
+        $character->__set('id_usuario', $_SESSION['id']);
+        $character->__set('id', $_POST['id']);
+        $this->view->numberCharacter = $character->getNumberCharacter();
+
+        if(!empty($_FILES['image']['name'])) {
+			$name_img = $this->nameImg('img_character');
+		}else {
+			$characterControlorImg = $character->getCharacter();
+           $name_img = $characterControlorImg->imagem;
+		}
+        
+        $character->__set('id_usuario', $_SESSION['id']);
+        $character->__set('nome', $_POST['name']);
+        $character->__set('classe', $_POST['class']);
+        $character->__set('idade', $_POST['age']);
+        $character->__set('vida', $_POST['life']);
+        $character->__set('energia', $_POST['energy']);
+        $character->__set('ca', $_POST['armor_class']);
+        $character->__set('altura', $_POST['height']);
+        $character->__set('cabelo', $_POST['color_hear']);
+        $character->__set('personalidade', $_POST['personality']);
+        $character->__set('detalhes', $_POST['details']);
+        $character->__set('nome_atributo_1', $_POST['name_attribute_1']);
+        $character->__set('nome_atributo_2', $_POST['name_attribute_2']);
+        $character->__set('nome_atributo_3', $_POST['name_attribute_3']);
+        $character->__set('nome_atributo_4', $_POST['name_attribute_4']);
+        $character->__set('nome_atributo_5', $_POST['name_attribute_5']);
+        $character->__set('nome_atributo_6', $_POST['name_attribute_6']);
+        $character->__set('valor_atributo_1', $_POST['value_attribute_1']);
+        $character->__set('valor_atributo_2', $_POST['value_attribute_2']);
+        $character->__set('valor_atributo_3', $_POST['value_attribute_3']);
+        $character->__set('valor_atributo_4', $_POST['value_attribute_4']);
+        $character->__set('valor_atributo_5', $_POST['value_attribute_5']);
+        $character->__set('valor_atributo_6', $_POST['value_attribute_6']);
+        $character->__set('nome_recurso_1', $_POST['resource_1']);
+        $character->__set('nome_recurso_2', $_POST['resource_2']);
+        $character->__set('nome_recurso_3', $_POST['resource_3']);
+        $character->__set('nome_recurso_4', $_POST['resource_4']);
+        $character->__set('valor_recurso_1', $_POST['value_resource_1']);
+        $character->__set('valor_recurso_2', $_POST['value_resource_2']);
+        $character->__set('valor_recurso_3', $_POST['value_resource_3']);
+        $character->__set('valor_recurso_4', $_POST['value_resource_4']);
+        $character->__set('historia', $_POST['history']);
+        $character->__set('imagem', $name_img);
+        $character->__set('nivel', 1);
+        $character->__set('experiencia', 1);
+
+        if ($character->edit()) {
+            header('Location: /app?success=2');
+        }else {
+            header('Location: /make_character?error=3');
+        }
+    }
+
     public function view() {
         $this->validateLogin();
         $character = Container::getModel('Personagem');
         $character->__set('id', $_GET['id']);
         $this->view->character = $character->getCharacter();
+        $character->__set('id_usuario', $_SESSION['id']);
+        $this->view->numberCharacter = $character->getNumberCharacter();
         $user = Container::getModel('Usuario');
         $user->__set('id', $_SESSION['id']);
         $this->view->user = $user->getUser();

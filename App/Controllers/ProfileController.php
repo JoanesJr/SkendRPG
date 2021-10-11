@@ -15,7 +15,13 @@ class ProfileController extends Action {
         $name_validate = $this->nameValidate();
 		$email_validate = $this->emailValidate();
 		$password_validade = $this->passwordValidate();
-        $name_img = $this->nameImg('img_profile');
+
+		if(!empty($_FILES['image']['name'])) {
+			$name_img = $this->nameImg('img_profile');
+		}else {
+			$userControlorImg = $user->getUSer();
+			$name_img = $userControlorImg->imagem;
+		}
 		
 		if ($name_validate && $email_validate && $password_validade) {
 			$user->__set('nome', $_POST['name']);

@@ -13,6 +13,7 @@ class AppController extends Action {
         $user = Container::getModel('Usuario');
         $character = Container::getModel('Personagem');
         $character->__set('id_usuario', $_SESSION['id']);
+        $this->view->numberCharacter = $character->getNumberCharacter();
         $this->view->character = $character->getAll();
         $user->__set('id', $_SESSION['id']);
         $this->view->user = $user->getUser();
@@ -31,6 +32,9 @@ class AppController extends Action {
     public function profile() {
         $this->validateLogin();
         $user = Container::getModel('Usuario');
+        $character = Container::getModel('Personagem');
+        $character->__set('id_usuario', $_SESSION['id']);
+        $this->view->numberCharacter = $character->getNumberCharacter();
         $user->__set('id', $_SESSION['id']);
         $this->view->user = $user->getUser();
 
