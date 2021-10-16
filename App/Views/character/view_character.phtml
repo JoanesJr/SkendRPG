@@ -8,8 +8,11 @@
     </div>
 
     <div>
-        <btn id="btnEditar" class="btn btn-warning">Editar</btn>
+        <a id="btnEditar" class="btn btn-warning">Editar</a>
+        <a href="/create_habilities?id=<?= $_GET['id'] ?>" class="btn btn-primary">Criar Habilidade</a>
+        <a href="/delete_character?id=<?= $_GET['id'] ?>" class="btn btn-danger">Excluir Personagem</a>
     </div>
+
     <div class="row" id="geral">
         <h4 align="center">GERAL</h4>
         <div class="col-12" id="geralContent">
@@ -167,6 +170,30 @@
             </div>
             
 
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <h4 align="center">HABILIDADES</h4>
+            <?php if (empty($this->view->habilities)) {
+
+            }else { ?>
+                <?php foreach ($this->view->habilities as $habilitie) { ?>
+                    <div class="col-4 d-flex  flex-column habilitie">
+                        <div class="d-flex justify-content-end align-items-start">
+                            <div><a href="delete_habilitie?id=<?= $habilitie->id ?>&id_personagem=<?= $_GET['id'] ?>" class="btn btn-outline-danger"><i class="fas fa-minus-circle"></i></a></div>
+                            <div><a href="edit_habilitie?id=<?= $habilitie->id ?>&id_personagem=<?= $_GET['id'] ?>" class="btn btn-outline-warning"><i class="fas fa-pencil-alt"></i></a></div>
+                        </div>
+                        
+                    
+                            <h5 align="center"><?= $habilitie->nome ?></h5>
+                            <div class="description-hab">
+                                <p><?= $habilitie->descricao ?></p>
+                            </div>
+                            <p><span>Efeito:</span> <?= $habilitie->efeito ?></p>
+                            <p><span>Dano:</span> <?= $habilitie->dano ?></p>
+                            <p><span>Custo:</span> <?= $habilitie->custo ?> de energia</p>
+                            <p><span>Cooldown:</span> <?= $habilitie->cooldown ?> turnos</p>
+                    </div> <?php } } ?>
         </div>
 </form>
 </main>

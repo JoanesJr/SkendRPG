@@ -1,0 +1,36 @@
+<main class="container">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center flex-column">
+            <h4 align="center">CRIAR HABILIDADE</h4>
+            <form action="/save_habilities" method="post">
+                <div class="form-group">
+                    <input type="text" placeholder="Nome da Habilidade" class="form-control" name="name" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Descrição da Habilidade" class="form-control" name="description" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Efeito da Habilidade" class="form-control" name="efect">
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Dano da Habilidade" class="form-control" name="damage">
+                </div>
+                <div class="form-group">
+                    <input type="number" placeholder="Custo da Habilidade" class="form-control" name="cost" required>
+                </div>
+                <div class="form-group">
+                    <input type="number" placeholder="Cooldown" class="form-control" name="cooldown">
+                </div>
+
+                <div class="form-group d-none">
+                    <input type="number" name="id_character" value="<?= $_GET['id'] ?>">
+                </div>
+
+                <div class="col-12 d-flex justify-content-center">
+                    <button type="submit">CRIAR</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</main>

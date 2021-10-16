@@ -99,6 +99,42 @@ class Route extends Bootstrap {
 			'action' => 'editCharacter'
 		);
 
+		$routes['create_habilities'] = array(
+			'route' => '/create_habilities',
+			'controller' => 'CharacterController',
+			'action' => 'createHabilities'
+		);
+
+		$routes['save_habilities'] = array(
+			'route' => '/save_habilities',
+			'controller' => 'CharacterController',
+			'action' => 'saveHabilities'
+		);
+
+		$routes['delete_habilitie'] = array(
+			'route' => '/delete_habilitie',
+			'controller' => 'CharacterController',
+			'action' => 'deleteHabilitie'
+		);
+
+		$routes['edit_habilitie'] = array(
+			'route' => '/edit_habilitie',
+			'controller' => 'CharacterController',
+			'action' => 'editHabilitie'
+		);
+
+		$routes['update_habilities'] = array(
+			'route' => '/update_habilities',
+			'controller' => 'CharacterController',
+			'action' => 'updateHabilitie'
+		);
+
+		$routes['delete_character'] = array(
+			'route' => '/delete_character',
+			'controller' => 'CharacterController',
+			'action' => 'deleteCharacter'
+		);
+
 		$this->setRoutes($routes);
 	}
 

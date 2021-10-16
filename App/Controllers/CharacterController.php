@@ -139,8 +139,116 @@ class CharacterController extends Action {
         $user = Container::getModel('Usuario');
         $user->__set('id', $_SESSION['id']);
         $this->view->user = $user->getUser();
+        $habilitie = Container::getModel('Habilidade');
+        $habilitie->__set('id_personagem', $_GET['id']);
+        $this->view->habilities = $habilitie->getHabUser();
       
         $this->render('view_character', 'home');
+    }
+
+    public function createHabilities() {
+        $this->validateLogin();
+        $user = Container::getModel('Usuario');
+        $user->__set('id', $_SESSION['id']);
+        $this->view->user = $user->getUser();
+
+        $character = Container::getModel('Personagem');
+        $character->__set('id_usuario', $_SESSION['id']);
+        $this->view->numberCharacter = $character->getNumberCharacter();
+        $this->render('create_habilities', 'home');
+    }
+
+    public function saveHabilities() {
+        $this->validateLogin();
+        if (empty($_POST['efect'])) {
+            $_POST['efect'] = "Nenhum";
+        }
+
+        if (empty($_POST['cooldown'])) {
+            $_POST['cooldown'] = 0;
+        }
+
+        if (empty($_POST['damage'])) {
+            $_POST['damage'] = "0";
+        }
+
+        if (empty($_POST['cost'])) {
+            $_POST['cost'] = 0;
+        }
+        $habilitie = Container::getModel('Habilidade');
+        $habilitie->__set('id_personagem', $_POST['id_character']);
+        $habilitie->__set('nome', $_POST['name']);
+        $habilitie->__set('descricao', $_POST['description']);
+        $habilitie->__set('efeito', $_POST['efect']);
+        $habilitie->__set('dano', $_POST['damage']);
+        $habilitie->__set('custo', $_POST['cost']);
+        $habilitie->__set('cooldown', $_POST['cooldown']);
+        $habilitie->salvar();
+
+        header("Location: /character?id={$_POST['id_character']}");
+    }
+
+    public function deleteHabilitie() {
+        $this->validateLogin();
+        $habilitie = Container::getModel('Habilidade');
+        $habilitie->__set('id', $_GET['id']);
+        $id_personagem = $_GET['id_personagem'];
+        $habilitie->excluir();
+        header("Location: /character?id={$id_personagem}");
+    }
+
+    public function editHabilitie() {
+        $this->validateLogin();
+        $character = Container::getModel('Personagem');
+        $character->__set('id', $_GET['id']);
+        $this->view->character = $character->getCharacter();
+        $character->__set('id_usuario', $_SESSION['id']);
+        $this->view->numberCharacter = $character->getNumberCharacter();
+        $user = Container::getModel('Usuario');
+        $user->__set('id', $_SESSION['id']);
+        $this->view->user = $user->getUser();
+        $habilitie = Container::getModel('Habilidade');
+        $habilitie->__set('id', $_GET['id']);
+        $this->view->habilitie = $habilitie->getUnicHabUser();
+        $this->render('view_habilitie', 'home');
+    }
+
+    public function updateHabilitie() {
+        $this->validateLogin();
+        if (empty($_POST['efect'])) {
+            $_POST['efect'] = "Nenhum";
+        }
+
+        if (empty($_POST['cooldown'])) {
+            $_POST['cooldown'] = 0;
+        }
+
+        if (empty($_POST['damage'])) {
+            $_POST['damage'] = "0";
+        }
+
+        if (empty($_POST['cost'])) {
+            $_POST['cost'] = 0;
+        }
+        $habilitie = Container::getModel('Habilidade');
+        $habilitie->__set('id', $_GET['id']);
+        $habilitie->__set('nome', $_POST['name']);
+        $habilitie->__set('descricao', $_POST['description']);
+        $habilitie->__set('efeito', $_POST['efect']);
+        $habilitie->__set('dano', $_POST['damage']);
+        $habilitie->__set('custo', $_POST['cost']);
+        $habilitie->__set('cooldown', $_POST['cooldown']);
+        $habilitie->editar();
+        $id_personagem = $_GET['id_personagem'];
+        header("Location: /character?id={$id_personagem}");
+    }
+
+    public function deleteCharacter() {
+        $this->validateLogin();
+        $character = Container::getModel('Personagem');
+        $character->__set('id', $_GET['id']);
+        $character->delete();
+        header('Location: /app');
     }
 
     public function validateInt($var) {

@@ -149,3 +149,24 @@ form button {
 .square_character img {
     max-width: 120px;
 }
+
+.habilitie {
+    border: 1px rgb(228, 220, 220) inset;
+    text-align: justify;
+    color: white;
+    padding: 14px;
+    background-color: rgb(90, 5, 5);
+}
+
+.habilitie h5 {
+    font-weight: bold;
+}
+
+.habilitie span {
+    font-weight: 400;
+    font-style: italic;
+}
+
+.habilitie a {
+    margin: 2px;
+}
