@@ -58,8 +58,18 @@ após isso basta digitar o endereço "localhost:8000" no navegador.
         altura varchar(5) not null default "1.76",
         detalhes varchar(50),
         personalidade varchar(555),
-        outros varchar(555),
         imagem varchar(50) DEFAULT "anonymus.png"
     );
 
+  CREATE TABLE habilidade (
+        id int not null primary key AUTO_INCREMENT,
+        id_personagem int not null,
+        foreign key(id_personagem) references personagem(id),
+        nome varchar(25) not null,
+        descricao varchar(255) not null,
+        efeito varchar (255) not null,
+        dano varchar(50) not null,
+        custo int(3) not null,
+        cooldown int(1) not null default 0
+    );
 }

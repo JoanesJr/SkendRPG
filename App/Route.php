@@ -81,6 +81,60 @@ class Route extends Bootstrap {
 			'action' => 'index'
 		);
 
+		$routes['add_character'] = array(
+			'route' => '/add_character',
+			'controller' => 'CharacterController',
+			'action' => 'createCharacter'
+		);
+
+		$routes['character'] = array(
+			'route' => '/character',
+			'controller' => 'CharacterController',
+			'action' => 'view'
+		);
+
+		$routes['edit_character'] = array(
+			'route' => '/edit_character',
+			'controller' => 'CharacterController',
+			'action' => 'editCharacter'
+		);
+
+		$routes['create_habilities'] = array(
+			'route' => '/create_habilities',
+			'controller' => 'CharacterController',
+			'action' => 'createHabilities'
+		);
+
+		$routes['save_habilities'] = array(
+			'route' => '/save_habilities',
+			'controller' => 'CharacterController',
+			'action' => 'saveHabilities'
+		);
+
+		$routes['delete_habilitie'] = array(
+			'route' => '/delete_habilitie',
+			'controller' => 'CharacterController',
+			'action' => 'deleteHabilitie'
+		);
+
+		$routes['edit_habilitie'] = array(
+			'route' => '/edit_habilitie',
+			'controller' => 'CharacterController',
+			'action' => 'editHabilitie'
+		);
+
+		$routes['update_habilities'] = array(
+			'route' => '/update_habilities',
+			'controller' => 'CharacterController',
+			'action' => 'updateHabilitie'
+		);
+
+		$routes['delete_character'] = array(
+			'route' => '/delete_character',
+			'controller' => 'CharacterController',
+			'action' => 'deleteCharacter'
+		);
+
 		$this->setRoutes($routes);
 	}
 

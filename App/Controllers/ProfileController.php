@@ -15,7 +15,13 @@ class ProfileController extends Action {
         $name_validate = $this->nameValidate();
 		$email_validate = $this->emailValidate();
 		$password_validade = $this->passwordValidate();
-        $name_img = $this->nameImg();
+
+		if(!empty($_FILES['image']['name'])) {
+			$name_img = $this->nameImg('img_profile');
+		}else {
+			$userControlorImg = $user->getUSer();
+			$name_img = $userControlorImg->imagem;
+		}
 		
 		if ($name_validate && $email_validate && $password_validade) {
 			$user->__set('nome', $_POST['name']);
@@ -27,31 +33,6 @@ class ProfileController extends Action {
 		} else {
             header('Location: /profile/error=4');
 		}
-    }
-
-    public function nameImg() {
-        if (!empty($_FILES['image']['name'])) {
-            $extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
-            $name = pathinfo($_FILES['image']['name'], PATHINFO_FILENAME);
-            $new_name = time().'.'.$extension;
-            $directory = "img/img_profile/";
-            move_uploaded_file($_FILES['image']['tmp_name'], $directory.$new_name);
-        }else {
-            $new_name = 'anonymus.png';
-        }
-
-        return $new_name;
-    }
-
-    //terá em todas as paginas do app, basicamente, verifica se o usuario esta logado, caso não esteja, redireciona para a pagina inicial de login
-    public function validateLogin() {
-        session_start();
-
-        if (empty($_SESSION['id']) && empty($_SESSION['nome'])) {
-            header('Location: /login?error=3');
-        }
-
-        return true;
     }
 
     public function nameValidate() {

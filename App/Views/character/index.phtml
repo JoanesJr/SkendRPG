@@ -1,16 +1,16 @@
 <main class="container">
-    <form action="/character_add" method="post" enctype="multipart/form-data">
+    <form action="/add_character" method="post" enctype="multipart/form-data">
     <div class="row">
         <h4 align="center">GERAL</h4>
         <div class="col-12 d-flex justify-content-center">
             <div class="form-group">
-                <input type="text" name="name" id="" placeholder="Nome do Personagem" class="form-control">
+                <input type="text" name="name" required id="" placeholder="Nome do Personagem" class="form-control">
             </div>
             <div class="form-group">
-                <input type="text" name="class" class="form-control" placeholder="Classe">
+                <input type="text" name="class" required class="form-control" placeholder="Classe">
             </div>
             <div class="form-group">
-                <input type="number" name="age" class="form-control" placeholder="Idade">
+                <input type="number" name="age" required class="form-control" placeholder="Idade">
             </div>
         </div>
     </div>
@@ -18,13 +18,13 @@
         <h4 align="center">ESPECIFICAÇOES</h4>
         <div class="col-12 d-flex justify-content-center">
             <div class="form-group">
-                <input type="number" name="life" id="" placeholder="Vida" class="form-control">
+                <input type="number" name="life" required id="" placeholder="Vida" class="form-control">
             </div>
             <div class="form-group">
-                <input type="number" name="energy" class="form-control" placeholder="Energia">
+                <input type="number" name="energy" required class="form-control" placeholder="Energia">
             </div>
             <div class="form-group">
-                <input type="number" name="armor_class" class="form-control" placeholder="Classe de Armadura">
+                <input type="number" name="armor_class" required class="form-control" placeholder="Classe de Armadura">
             </div>
         </div>
     </div>
@@ -32,16 +32,16 @@
         <h4 align="center">CARACTERISTICAS</h4>
         <div class="col-12 d-flex justify-content-center">
             <div class="form-group">
-                <input type="text" name="height" id="" placeholder="Altura(EX: 1.81)" class="form-control">
+                <input type="text" name="height" id="" required placeholder="Altura(EX: 1.81)" class="form-control">
             </div>
             <div class="form-group">
-                <input type="text" name="color_hear" class="form-control" placeholder="Cor do Cabelo">
+                <input type="text" name="color_hear" required class="form-control" placeholder="Cor do Cabelo">
             </div>
             <div class="form-group">
-                <input type="text" name="personality" class="form-control" placeholder="Personalidade">
+                <input type="text" name="personality" required class="form-control" placeholder="Personalidade">
             </div>
             <div class="form-group">
-                <input type="text" name="details" class="form-control" placeholder="Detalhes">
+                <input type="text" name="details" required class="form-control" placeholder="Detalhes">
             </div>
         </div>
     </div>
@@ -49,12 +49,12 @@
             <div class="col-5 col-md-5 d-flex justify-content-center">
                 <div class="form-group">
                     <h4>Nome dos Atributos</h4>
-                    <input type="text" name="name_attribute_1" id="" class="form-control" value="Força">
-                    <input type="text" name="name_attribute_2" id="" class="form-control" value="Destreza">
-                    <input type="text" name="name_attribute_3" id="" class="form-control" value="Constituiço">
-                    <input type="text" name="name_attribute_4" id="" class="form-control" value="Inteligencia">
-                    <input type="text" name="name_attribute_5" id="" class="form-control" value="Sabedoria">
-                    <input type="text" name="name_attribute_6" id="" class="form-control" value="Carisma">
+                    <input type="text" name="name_attribute_1" id="" class="form-control" value="Força" required>
+                    <input type="text" name="name_attribute_2" id="" class="form-control" value="Destreza" required>
+                    <input type="text" name="name_attribute_3" id="" class="form-control" value="Constituição" required>
+                    <input type="text" name="name_attribute_4" id="" class="form-control" value="Inteligência" required>
+                    <input type="text" name="name_attribute_5" id="" class="form-control" value="Sabedoria" required>
+                    <input type="text" name="name_attribute_6" id="" class="form-control" value="Carisma" required>
                 </div>
             </div>
             <div class="col-2 col-md-2 d-block">
@@ -80,12 +80,12 @@
             <div class="col-5 col-md-5 d-flex justify-content-center">
                 <div class="form-group">
                     <h4>Valor dos Atributos</h4>
-                    <input type="number" name="value_attribute_1" id="" class="form-control" value=8>
-                    <input type="number" name="value_attribute_2" id="" class="form-control" value=8>
-                    <input type="number" name="value_attribute_3" id="" class="form-control" value=8>
-                    <input type="number" name="value_attribute_4" id="" class="form-control" value=8>
-                    <input type="number" name="value_attribute_5" id="" class="form-control" value=8>
-                    <input type="number" name="value_attribute_6" id="" class="form-control" value=8>
+                    <input type="number" name="value_attribute_1" id="" class="form-control" value=8 required> 
+                    <input type="number" name="value_attribute_2" id="" class="form-control" value=8 required>
+                    <input type="number" name="value_attribute_3" id="" class="form-control" value=8 required>
+                    <input type="number" name="value_attribute_4" id="" class="form-control" value=8 required>
+                    <input type="number" name="value_attribute_5" id="" class="form-control" value=8 required>
+                    <input type="number" name="value_attribute_6" id="" class="form-control" value=8 required>
                 </div>
             </div>
         </div>
@@ -94,10 +94,10 @@
             <div class="col-5 col-md-5 d-flex justify-content-center">
                 <div class="form-group">
                     <h4>Nome dos Recursos</h4>
-                    <input type="text" name="resource_1" id="" class="form-control" value="Platina">
-                    <input type="text" name="resource_2" id="" class="form-control" value="Ouro">
-                    <input type="text" name="resource_3" id="" class="form-control" value="Prata">
-                    <input type="text" name="resource_4" id="" class="form-control" value="Bronze">
+                    <input type="text" name="resource_1" id="" class="form-control" value="Platina" required>
+                    <input type="text" name="resource_2" id="" class="form-control" value="Ouro" required>
+                    <input type="text" name="resource_3" id="" class="form-control" value="Prata" required>
+                    <input type="text" name="resource_4" id="" class="form-control" value="Bronze" required>
                 </div>
             </div>
 
@@ -119,10 +119,10 @@
             <div class="col-5 col-md-5 d-flex justify-content-center">
                 <div class="form-group">
                     <h4>Valor dos Recursos</h4>
-                    <input type="number" name="value_resource_1" id="" class="form-control" value=0>
-                    <input type="number" name="value_resource_2" id="" class="form-control" value=0> 
-                    <input type="number" name="value_resource_3" id="" class="form-control" value=0>
-                    <input type="number" name="value_resource_4" id="" class="form-control" value=0>
+                    <input type="number" name="value_resource_1" id="" class="form-control" value=1 required>
+                    <input type="number" name="value_resource_2" id="" class="form-control" value=1 required> 
+                    <input type="number" name="value_resource_3" id="" class="form-control" value=1 required>
+                    <input type="number" name="value_resource_4" id="" class="form-control" value=1 required>
                 </div>
             </div>
         </div>
@@ -130,7 +130,7 @@
             <h4 align="center">HISTORIA</h4>
             <div class="col-12 d-flex justify-content-center">
                 <div class="form-group">
-                    <textarea name="history" id="" cols="93" rows="10"></textarea>
+                    <textarea name="history" id="" cols="93" rows="10" required></textarea>
                 </div>
             </div>
         </div>
@@ -138,12 +138,13 @@
             <h4 align="center">IMAGEM DO PERSONAGEM</h4>
             <div class="col-12 d-flex justify-content-center">
                 <div class="form-group">
-                    <input type="file" class="form-control" name="img_character">
+                    <input type="file" class="form-control" name="image">
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 d-flex justify-content-center">
                     <button type="submit" class="btn-make-character">CRIAR FICHA</button>
+                    
                 </div>
             </div>
         </div>

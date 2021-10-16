@@ -7,12 +7,11 @@
         </div>
         <div class="col-12 col-md-6">
             <h3>Listagem de Personagens</h3>
-            <p>personagem xx</p>
-            <p>personagem xx</p>
-            <p>personagem xx</p>
-            <p>personagem xx</p>
-            <p>personagem xx</p>
-            <p>personagem xx</p>
+            <?php foreach($this->view->character as $character)  {?>
+                <div id="list-character" class="d-flex justify-column">
+                    <a href="/character?id=<?= $character->id ?>"><?= $character->nome ?></a>
+                </div>
+            <?php } ?>
 
         </div>
     </div>

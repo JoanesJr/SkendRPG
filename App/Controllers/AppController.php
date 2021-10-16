@@ -11,6 +11,10 @@ class AppController extends Action {
     public function index() {
         $this->validateLogin();
         $user = Container::getModel('Usuario');
+        $character = Container::getModel('Personagem');
+        $character->__set('id_usuario', $_SESSION['id']);
+        $this->view->numberCharacter = $character->getNumberCharacter();
+        $this->view->character = $character->getAll();
         $user->__set('id', $_SESSION['id']);
         $this->view->user = $user->getUser();
 
@@ -28,20 +32,13 @@ class AppController extends Action {
     public function profile() {
         $this->validateLogin();
         $user = Container::getModel('Usuario');
+        $character = Container::getModel('Personagem');
+        $character->__set('id_usuario', $_SESSION['id']);
+        $this->view->numberCharacter = $character->getNumberCharacter();
         $user->__set('id', $_SESSION['id']);
         $this->view->user = $user->getUser();
 
         $this->render('profile', 'home');
     }
 
-    //terá em todas as paginas do app, basicamente, verifica se o usuario esta logado, caso não esteja, redireciona para a pagina inicial de login
-    public function validateLogin() {
-        session_start();
-
-        if (empty($_SESSION['id']) && empty($_SESSION['nome'])) {
-            header('Location: /login?error=3');
-        }
-
-        return true;
-    }
 }
