@@ -170,3 +170,23 @@ form button {
 .habilitie a {
     margin: 2px;
 }
+.item {
+    border: 1px rgb(228, 220, 220) inset;
+    text-align: justify;
+    color: white;
+    padding: 14px;
+    background-color: rgba(46, 22, 112, 0.89);
+}
+
+.item h5 {
+    font-weight: bold;
+}
+
+.item span {
+    font-weight: 400;
+    font-style: italic;
+}
+
+.item a {
+    margin: 2px;
+}

@@ -72,4 +72,16 @@ após isso basta digitar o endereço "localhost:8000" no navegador.
         custo int(3) not null,
         cooldown int(1) not null default 0
     );
+
+    CREATE TABLE Item (
+        id int PRIMARY KEY AUTO_INCREMENT NOT null,
+        id_personagem int not null,
+        foreign key(id_personagem) references personagem(id),
+        nome varchar(25) not null,
+        descricao varchar(500),
+        dano varchar(25),
+        ca varchar(40),
+        efeito varchar(255)
+    );
+
 }

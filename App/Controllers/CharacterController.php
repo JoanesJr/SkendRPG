@@ -150,6 +150,9 @@ class CharacterController extends Action {
         $habilitie = Container::getModel('Habilidade');
         $habilitie->__set('id_personagem', $_GET['id']);
         $this->view->habilities = $habilitie->getHabUser();
+        $item = Container::getModel('Item');
+        $item->__set('id_personagem', $_GET['id']);
+        $this->view->itens = $item->getItemPersonagem();
       
         $this->render('view_character', 'home');
     }
@@ -257,6 +260,97 @@ class CharacterController extends Action {
         $character->__set('id', $_GET['id']);
         $character->delete();
         header('Location: /app');
+    }
+
+    public function createItem() {
+        $this->validateLogin();
+        $user = Container::getModel('Usuario');
+        $user->__set('id', $_SESSION['id']);
+        $this->view->user = $user->getUser();
+
+        $character = Container::getModel('Personagem');
+        $character->__set('id_usuario', $_SESSION['id']);
+        $this->view->numberCharacter = $character->getNumberCharacter();
+        $this->render('create_item', 'home');
+    }
+
+    public function saveItem() {
+        $this->validateLogin();
+        if (empty($_POST['efect'])) {
+            $_POST['efect'] = "Nenhum";
+        }
+
+        if (empty($_POST['damage'])) {
+            $_POST['damage'] = "Nenhum";
+        }
+
+        if (empty($_POST['damage'])) {
+            $_POST['damage'] = "0";
+        }
+
+        if (empty($_POST['ca'])) {
+            $_POST['ca'] = "Nenhum";
+        }
+        $item = Container::getModel('Item');
+        $item->__set('id_personagem', $_POST['id_character']);
+        $item->__set('nome', $_POST['name']);
+        $item->__set('descricao', $_POST['description']);
+        $item->__set('efeito', $_POST['efect']);
+        $item->__set('dano', $_POST['damage']);
+        $item->__set('ca', $_POST['ca']);
+        $item->salvar();
+
+        header("Location: /character?id={$_POST['id_character']}");
+    }
+
+    public function deleteItem() {
+        $this->validateLogin();
+        $item = Container::getModel('Item');
+        $item->__set('id', $_GET['id']);
+        $id_personagem = $_GET['id_personagem'];
+        $item->excluir();
+        header("Location: /character?id={$id_personagem}");
+    }
+
+    public function editItem() {
+        $this->validateLogin();
+        $character = Container::getModel('Personagem');
+        $character->__set('id', $_GET['id']);
+        $this->view->character = $character->getCharacter();
+        $character->__set('id_usuario', $_SESSION['id']);
+        $this->view->numberCharacter = $character->getNumberCharacter();
+        $user = Container::getModel('Usuario');
+        $user->__set('id', $_SESSION['id']);
+        $this->view->user = $user->getUser();
+        $item = Container::getModel('Item');
+        $item->__set('id', $_GET['id']);
+        $this->view->item = $item->getItem();
+        $this->render('view_item', 'home');
+    }
+
+    public function updateItem() {
+        $this->validateLogin();
+        if (empty($_POST['efect'])) {
+            $_POST['efect'] = "Nenhum";
+        }
+
+        if (empty($_POST['damage'])) {
+            $_POST['damage'] = "Nenhum";
+        }
+
+        if (empty($_POST['ca'])) {
+            $_POST['ca'] = "Nenhum";
+        }
+        $item = Container::getModel('Item');
+        $item->__set('id', $_GET['id']);
+        $item->__set('nome', $_POST['name']);
+        $item->__set('descricao', $_POST['description']);
+        $item->__set('efeito', $_POST['efect']);
+        $item->__set('dano', $_POST['damage']);
+        $item->__set('ca', $_POST['ca']);
+        $item->editar();
+        $id_personagem = $_GET['id_personagem'];
+        header("Location: /character?id={$id_personagem}");
     }
 
     public function validateInt($var) {
