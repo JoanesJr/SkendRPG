@@ -75,6 +75,8 @@ class Route extends Bootstrap {
 			'action' => 'userEdit'
 		);
 
+		//Character
+
 		$routes['make_character'] = array(
 			'route' => '/make_character',
 			'controller' => 'CharacterController',
@@ -98,6 +100,14 @@ class Route extends Bootstrap {
 			'controller' => 'CharacterController',
 			'action' => 'editCharacter'
 		);
+
+		$routes['delete_character'] = array(
+			'route' => '/delete_character',
+			'controller' => 'CharacterController',
+			'action' => 'deleteCharacter'
+		);
+
+		//Habilidades
 
 		$routes['create_habilities'] = array(
 			'route' => '/create_habilities',
@@ -129,11 +139,37 @@ class Route extends Bootstrap {
 			'action' => 'updateHabilitie'
 		);
 
-		$routes['delete_character'] = array(
-			'route' => '/delete_character',
+		//Itens
+		$routes['create_item'] = array(
+			'route' => '/create_item',
 			'controller' => 'CharacterController',
-			'action' => 'deleteCharacter'
+			'action' => 'createItem'
 		);
+
+		$routes['save_item'] = array(
+			'route' => '/save_item',
+			'controller' => 'CharacterController',
+			'action' => 'saveItem'
+		);
+
+		$routes['delete_item'] = array(
+			'route' => '/delete_item',
+			'controller' => 'CharacterController',
+			'action' => 'deleteItem'
+		);
+
+		$routes['edit_item'] = array(
+			'route' => '/edit_item',
+			'controller' => 'CharacterController',
+			'action' => 'editItem'
+		);
+
+		$routes['update_Item'] = array(
+			'route' => '/update_item',
+			'controller' => 'CharacterController',
+			'action' => 'updateItem'
+		);
+
 
 		$this->setRoutes($routes);
 	}

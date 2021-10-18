@@ -10,6 +10,7 @@
     <div>
         <a id="btnEditar" class="btn btn-warning">Editar</a>
         <a href="/create_habilities?id=<?= $_GET['id'] ?>" class="btn btn-primary">Criar Habilidade</a>
+        <a href="/create_item?id=<?= $_GET['id'] ?>" class="btn btn-primary">Criar Item</a>
         <a href="/delete_character?id=<?= $_GET['id'] ?>" class="btn btn-danger">Excluir Personagem</a>
     </div>
 
@@ -193,6 +194,29 @@
                             <p><span>Dano:</span> <?= $habilitie->dano ?></p>
                             <p><span>Custo:</span> <?= $habilitie->custo ?> de energia</p>
                             <p><span>Cooldown:</span> <?= $habilitie->cooldown ?> turnos</p>
+                    </div> <?php } } ?>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <h4 align="center">ITENS</h4>
+            <?php if (empty($this->view->itens)) {
+
+            }else { ?>
+                <?php foreach ($this->view->itens as $item) { ?>
+                    <div class="col-4 d-flex  flex-column item">
+                        <div class="d-flex justify-content-end align-items-start">
+                            <div><a href="delete_item?id=<?= $item->id ?>&id_personagem=<?= $_GET['id'] ?>" class="btn btn-outline-danger"><i class="fas fa-minus-circle"></i></a></div>
+                            <div><a href="edit_item?id=<?= $item->id ?>&id_personagem=<?= $_GET['id'] ?>" class="btn btn-outline-warning"><i class="fas fa-pencil-alt"></i></a></div>
+                        </div>
+                        
+                    
+                            <h5 align="center"><?= $item->nome ?></h5>
+                            <div class="description-hab">
+                                <p><?= $item->descricao ?></p>
+                            </div>
+                            <p><span>Efeito:</span> <?= $item->efeito ?></p>
+                            <p><span>Dano:</span> <?= $item->dano ?></p>
+                            <p><span>CA:</span> <?= $item->ca ?></p>
                     </div> <?php } } ?>
         </div>
 </form>
