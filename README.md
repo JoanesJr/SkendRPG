@@ -6,6 +6,8 @@ Acesse a pasta pública deste projeto pelo CMD e rode o seguinte comando sem as 
 após isso basta digitar o endereço "localhost:8000" no navegador.
 *****************************************************************
 
+Lembre-se de configurar o login e senha do banco de dados de acordo.
+
 <!------------------- COMANDOS SQL PARA CRIAÇÃO DO BANCO DE DADOS E TABELAS-------------------> *OBS: ir adicionando de acordo formos cirando mais.
 {
     CREATE DATABASE skendRPG;
